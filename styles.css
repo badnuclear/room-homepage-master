@@ -1,1 +1,67 @@
 @import "reset.css";
+@import url("https://fonts.google.com/specimen/League+Spartan");
+
+:root {
+  --Dark__Grey: hsl(0, 0%, 63%);
+  --Black: hsl(0, 0%, 0%);
+  --White: hsl(0, 0%, 100%);
+  --Very__Dark__Gray: hsl(0, 0%, 27%);
+
+  --font_weight__300: 300;
+  --font_weight__600: 600;
+  --font_weight__700: 700;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Spartan, sans-serif;
+  font-size: 1.2rem;
+  font-weight: var(--font_weight__600);
+  color: var(--Dark__Grey);
+  min-height: 100vh;
+  position: relative;
+}
+.header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin: 6rem max(5%, 6rem);
+  z-index: 1;
+}
+.header__logo-box img {
+  vertical-align: middle;
+}
+.nav {
+  margin-left: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.4s;
+}
+.nav__list {
+  color: var(--White);
+  text-transform: lowercase;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.nav__menu {
+  cursor: pointer;
+  padding: 1rem;
+  position: relative;
+}
+.nav__menu:last-child {
+  padding-right: 0;
+}
+.nav__menu:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+}
