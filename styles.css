@@ -11,10 +11,15 @@
   --font_weight__600: 600;
   --font_weight__700: 700;
 }
-* {
+*,
+:after,
+:before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+html {
+  font-size: 65%;
 }
 body {
   font-family: Spartan, sans-serif;
@@ -30,6 +35,14 @@ body {
   align-items: center;
   margin: 6rem max(5%, 6rem);
   z-index: 1;
+}
+.header__icon-open {
+  display: none;
+  position: absolute;
+  left: 0;
+}
+.header__icon-close {
+  display: none;
 }
 .header__logo-box img {
   vertical-align: middle;
@@ -160,14 +173,14 @@ body {
   width: 100%;
   height: 100%;
 }
-.text__box h1 {
+.text-box h1 {
   font-size: 3.5rem;
   font-weight: var(--font_weight__700);
   letter-spacing: -1px;
   margin-bottom: 2rem;
   color: var(--Black);
 }
-.text__box h3 {
+.text-box h3 {
   font-size: 1.4rem;
   font-weight: var(--font_weight__700);
   letter-spacing: 0.4rem;
@@ -175,10 +188,10 @@ body {
   color: var(--Black);
   text-transform: uppercase;
 }
-.text__box p {
+.text-box p {
   line-height: 1.6;
 }
-.text__box button {
+.text-box button {
   border: 0;
   font-size: 1.3rem;
   font-size: var(--font_weight__600);
@@ -190,4 +203,35 @@ body {
   cursor: pointer;
   margin-top: 2rem;
   transition: all 0.3s;
+}
+.text-box button .button__icon {
+  margin-left: 1rem;
+  transition: all 0.2s;
+}
+.text-box button .button__icon path {
+  transition: all 0.3s;
+}
+.text-box button:hover {
+  color: var(--Dark__Grey);
+}
+.text-box button:hover .button__icon path {
+  fill: var(--Dark__Grey);
+}
+.text-box button:active .button__icon {
+  margin-left: 2rem;
+}
+.about {
+  display: flex;
+  min-height: 30vh;
+}
+.about__img-box {
+  flex-basis: 30%;
+}
+.about__text {
+  flex-basis: 40%;
+  padding: 6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -17,10 +17,20 @@
   <body>
     <header class="header">
       <figure class="header__logo-box">
+        <img
+          src="images/icon-hamburger.svg"
+          alt="hamburger"
+          class="header__icon-open"
+        />
         <img src="images/logo.svg" class="logo" alt="logo" />
       </figure>
       <nav class="nav">
         <ul class="nav__list">
+          <img
+            src="images/icon-close.svg"
+            alt="hambutger icon"
+            class="header__icon-close"
+          />
           <li class="nav__menu">home</li>
           <li class="nav__menu">shop</li>
           <li class="nav__menu">about</li>
@@ -31,17 +41,32 @@
     <main>
       <section class="slider">
         <section class="slider__img-container">
-          <picture class="slider__img-active"
+          <picture class="slider__img slider__img-active"
             ><source src="images/desktop-image-hero-1.jpg" />
             <source src="images/mobile-image-hero-1.jpg" />
+            <img
+              src="images/desktop-image-hero-1.jpg"
+              alt="img hero_1"
+              class="img"
+            />
           </picture>
           <picture class="slider__img"
             ><source src="images/desktop-image-hero-2.jpg" />
-            <source src="images/mobile-image-hero-2.jpg"
-          /></picture>
+            <source src="images/mobile-image-hero-2.jpg" />
+            <img
+              src="images/desktop-image-hero-2.jpg"
+              alt="img hero_2"
+              class="img"
+            />
+          </picture>
           <picture class="slider__img">
             <source src="images/desktop-image-hero-3.jpg" />
             <source src="images/mobile-image-hero-3.jpg" />
+            <img
+              src="images/desktop-image-hero-3.jpg"
+              alt="img hero_3"
+              class="img"
+            />
           </picture>
           <div class="slider__animation"></div>
         </section>
@@ -55,7 +80,9 @@
               with our collection and make your property a reflection of you and
               what you love.
             </p>
-            <button>Shop now <img src="images/icon-arrow.svg" /></button>
+            <button>
+              Shop now <img src="images/icon-arrow.svg" class="button__icon" />
+            </button>
           </div>
           <div class="slider__text text-box">
             <h1>We are available all across the globe</h1>
@@ -116,4 +143,5 @@
       </div>
     </main>
   </body>
+  <script src="homepage.js"></script>
 </html>
