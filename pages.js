@@ -1,52 +1,49 @@
 const sliderImgs = document.querySelectorAll(".slider__img");
-const sliderText = document.querySelectorAll(".slider__text-container");
+const sliderText = document.querySelectorAll(".slider__text");
 const btnRight = document.querySelector(".slider__btn-right");
 const btnLeft = document.querySelector(".slider__btn-left");
 
-const nextSlider = () => {
-  const activeImg = document.querySelector(".slider__img-active");
-  const activeText = document.querySelector(".slider__text-active");
+const nextSlide = () => {
+  const SlideImg = document.querySelector(".slider__img-active");
 
-  activeImg.classList.remove("slider__img-active");
-  activeText.classList.remove("slider__text-active");
+  const SlideText = document.querySelector(".slider__text-active");
+  SlideText.classList.remove("slider__text-active");
+
+  SlideImg.classList.remove("slider__img-active");
 
   if (
-    activeImg.nextElementSibling &&
-    activeImg.nextElementSibling.classList.contains("slider__img")
+    SlideImg.nextElementSibling &&
+    SlideImg.nextElementSibling.classList.contains("slider__img")
   ) {
-    activeImg.classList.add("slider__img-active");
-    activeText.classList.add("slider__text-active");
+    SlideImg.nextElementSibling.classList.add("slider__img-active");
+    SlideText.nextElementSibling.classList.add("slider__text-active");
   } else {
     sliderImgs[0].classList.add("slider__img-active");
     sliderText[0].classList.add("slider__text-active");
   }
 };
+const prevSlide = () => {
+  const SlideImg = document.querySelector(".slider__img-active");
 
-const preSlider = () => {
-  const activeImg = document.querySelector(".slider__img-active");
-  const activeText = document.querySelector(".slider__text-active");
+  const SlideText = document.querySelector(".slider__text-active");
+  SlideText.classList.remove("slider__text-active");
 
-  activeImg.classList.remove("slider__img-active");
-  activeText.classList.remove("slider__text-active");
+  SlideImg.classList.remove("slider__img-active");
 
   if (
-    activeImg.previousElementSibling &&
-    activeImg.previousElementSibling.classList.contains("slider__img-active")
+    SlideImg.previousElementSibling &&
+    SlideImg.previousElementSibling.classList.contains("slider__img")
   ) {
-    activeImg.classList.add("slider__img-active");
-    activeText.classList.add("slider__text-active");
+    SlideImg.previousElementSibling.classList.add("slider__img-active");
+    SlideText.previousElementSibling.classList.add("slider__text-active");
   } else {
-    sliderImgs[sliderImgs.length - 1].previousElementSibling.classList.add(
-      "slider__img-active"
-    );
-    sliderText[sliderText.length - 1].previousElementSibling.classList.add(
-      "slider__text-active"
-    );
+    sliderImgs[sliderImgs.length - 1].classList.add("slider__img-active");
+    sliderText[sliderText.length - 1].classList.add("slider__text-active");
   }
 };
 
-btnRight.addEventListener("click", nextSlider);
-btnLeft.addEventListener("click", preSlider);
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", prevSlide);
 
 const openNav = document.querySelector(".nav__open-btn");
 const closeNav = document.querySelector(".nav__close-btn");
