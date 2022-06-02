@@ -1,5 +1,5 @@
-@import "reset.css";
 @import url("https://fonts.google.com/specimen/League+Spartan");
+@import "reset.css";
 
 :root {
   --Dark__Grey: hsl(0, 0%, 63%);
@@ -14,19 +14,20 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  border: border-box;
 }
 html {
-  font-size: 13px;
+  font-size: 10px;
 }
 body {
-  font-family: "Spartan", sans-serif;
-  font-size: 1.3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 12px;
   background: var(--White);
   transition: background 0.3s;
 }
 body.dark {
-  background: var(--Dark__Grey);
+  background-color: var(--Very__Dark__Gray);
 }
 a {
   text-decoration: none;
@@ -44,8 +45,8 @@ img {
   max-width: 144rem;
   margin: 0 auto;
 }
-.front {
-  font-size: 3.8rem;
+.first {
+  font-size: 40px;
   margin-bottom: 3rem;
   font-weight: var(--font_weight__600);
 }
@@ -55,6 +56,7 @@ img {
   line-height: 1.5;
   margin-bottom: 3rem;
 }
+/* nav */
 .nav {
   position: absolute;
   z-index: 2;
@@ -75,6 +77,7 @@ img {
 }
 .logo {
   margin-right: 5rem;
+  margin-left: 35px;
 }
 .nav__list {
   display: flex;
@@ -92,16 +95,19 @@ img {
   content: "";
   position: absolute;
   width: 0;
-  height: 4px;
+  height: 2px;
   left: 50%;
-  transform: translateX(-50%);
   top: 90%;
-  transition: 0.5s;
+  transform: translateX(-50%);
+  transition: 0.3s;
   background: var(--White);
 }
 .nav__a:hover::before {
-  width: calc(70% - 30px);
+  width: calc(70% - 20px);
 }
+
+/* slider */
+
 .slider {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -167,30 +173,30 @@ img {
 }
 .slider__text-container {
   grid-column: 8/13;
-  min-height: 540px;
+  min-height: 534px;
   position: relative;
   overflow-x: hidden;
 }
 .slider__text {
   position: absolute;
+  top: 0;
   left: 100%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 60%;
   padding: 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   opacity: 0;
-  transition: 0.3 opacity;
+  transition: 0.3s opacity;
 }
 .slider__text.slider__text-active {
   opacity: 1;
 }
 .slider__arrow {
-  text-transform: uppercase;
-  display: flex;
   align-self: flex-start;
+  display: flex;
   align-items: center;
   color: var(--Black);
   font-weight: var(--font_weight__600);
@@ -239,20 +245,20 @@ img {
   font-size: 1.1rem;
   line-height: 1.7;
 }
-.about__img_02 {
-  min-width: 266px;
+.about__img_03 {
+  min-height: 266px;
   background: url(./images/image-about-light.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.about {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-@media screen and (max-width: 1200px) {
+
+@media screen and (max-width: 1150px) {
+  .first {
+    margin-top: 10%;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
   .slider__text {
     padding: 10%;
     justify-content: unset;
@@ -261,17 +267,13 @@ img {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media screen and (max-width: 1000px) {
-  .front {
-    margin-top: 5%;
-    font-size: 3.4rem;
-    margin-bottom: 3rem;
+@media screen and (max-width: 840px) {
+  .first {
+    margin-top: 0;
   }
-}
-@media screen and (max-width: 800px) {
   .slider {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr, 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .slider__img-container {
     grid-column: 1/2;
@@ -299,13 +301,12 @@ img {
     grid-column: 1/3;
     grid-row: 2/3;
   }
-  .about__img_02 {
+  .about__img_03 {
     grid-column: 2/3;
     grid-row: 1/2;
   }
 }
-
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 600px) {
   .nav__open-btn,
   .nav__close-btn {
     display: flex;
@@ -313,6 +314,7 @@ img {
     align-items: center;
     flex-shrink: 0;
     padding: 0.5rem;
+    background: none;
     border: none;
     cursor: pointer;
   }
@@ -320,9 +322,10 @@ img {
     padding: 0.2rem;
   }
   .logo {
-    margin-right: 0;
     position: absolute;
+    left: 50%;
     transform: translateX(-50%);
+    margin-right: 0;
   }
   .nav__list-container {
     position: fixed;
@@ -330,56 +333,43 @@ img {
     left: 100%;
     width: 100%;
     min-height: 11rem;
-    padding: 0 2rem;
+    padding: 0.2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: var(--White);
-    transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
+
   .nav__list-container.open {
     transform: translateX(-100%);
   }
-  .nav__menu:last-of-type {
+  .nav__item:last-of-type {
     margin-right: 0;
   }
   .nav__a {
-    padding: 1rem;
-    color: var(--White);
-    position: relative;
+    color: var(--Black);
+    padding: 0.5rem;
   }
 }
-@media screen and (max-width: 370px) {
-  .slider__img {
-    min-height: 360px;
-  }
-  .slider__img.slider__img-active {
-    opacity: 1;
-  }
-  .slider__btn {
-    width: 6rem;
-    height: 6rem;
-  }
-  .slider__text-container {
-    min-height: 430px;
-  }
-  .slider__text {
-    padding: 2rem;
-  }
+@media screen and (max-width: 420px) {
   .about {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
   }
   .about__text-list {
-    grid-column: 1/3;
+    grid-column: 1/2;
     grid-row: 2/3;
   }
-  .about__img_02 {
+  .about__img_03 {
     grid-column: 1/2;
     grid-row: 3/4;
   }
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 375px) {
+  .slider__img {
+    min-height: 360px;
+  }
   .slider__img:nth-child(1) {
     background: url(./images/desktop-image-hero-1.jpg);
     background-position: center;
@@ -397,5 +387,20 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  .slider__btn {
+    width: 6rem;
+    height: 6rem;
+  }
+  .slider__text-container {
+    min-height: 410px;
+  }
+  .slider__text {
+    padding: 2.5rem;
+  }
+}
+@media screen and (max-width: 325px) {
+  .slider__text-container {
+    min-height: 510px;
   }
 }
