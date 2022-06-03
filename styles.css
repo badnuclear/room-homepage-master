@@ -252,7 +252,21 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.attribution {
+  position: relative;
+  text-align: center;
+  top: 30px;
+  font-size: 13px;
+  color: #004a9e;
+}
+.attribution a {
+  color: #0066cc;
+  transition: color 0.7s 0s ease;
+  text-decoration: none;
+}
+.attribution a:hover {
+  color: palevioletred;
+}
 @media screen and (max-width: 1150px) {
   .first {
     margin-top: 10%;
